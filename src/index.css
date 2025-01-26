@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap");
+
+body {
+	background: #130f40;
+	color: white;
+	font-family: "Ubuntu Mono";
+	display: flex;
+	align-items: center;
+	/* margin: 0;
+	font-size: 20px; */
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+#root {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center; 
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: center;
+	align-items: center;
+}
+.cardsContainer {
+	/* max-width: 1280px; */
+	display: grid;
+	grid-template-columns: repeat(8, 1fr);
+	justify-content: center;
+	gap: 10px;
+	margin: 20px auto;
+}
+
+.card {
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	background: #30336b;
+	width: 155px;
+	height: 225px;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2px;
+	transition: all linear 0.3s;
+	transform: rotate3d(0, 1, 0, 180deg);
+	position: relative;
+	overflow: hidden;
+}
+
+.card:hover {
+	cursor: pointer;
+	transform: rotate3d(0, 1, 0, 180deg) translate(-2px, -2px);
+}
+
+.card.flipped {
+	transform: unset;
+	transform-style: preserve-3d;
+}
+
+.backSide {
+	/* background-color: rgb(3, 29, 48); */
+	background-image: url("../public/images/cardBack.jpg");
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover,contain;
+	backface-visibility: hidden;
+}
+
+.flipped .backSide {
+	transform: rotate3d(0, 1, 0, 180deg);
+}
